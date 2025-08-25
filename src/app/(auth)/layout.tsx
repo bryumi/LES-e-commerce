@@ -6,7 +6,7 @@ import styled from 'styled-components';
 type AuthLayoutProps = {
     children: ReactNode;
 };
-export const Container = styled.div`
+const Container = styled.div`
     height: 100%;
     padding: 2rem 5rem;
     margin-top: 10rem;

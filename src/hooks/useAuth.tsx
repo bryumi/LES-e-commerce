@@ -73,16 +73,16 @@ const AuthProvider = ({ children }: ChildrenProps) => {
 
     const login = (data: ILoginResponse) => {
         localStorage.setItem(localStorageKeys.user, JSON.stringify(data.user));
-        localStorage.setItem(localStorageKeys.accessToken, data.jwt);
-        localStorage.setItem(localStorageKeys.refreshToken, data.refreshToken);
+        // localStorage.setItem(localStorageKeys.accessToken, data.jwt);
+        // localStorage.setItem(localStorageKeys.refreshToken, data.refreshToken);
 
         setUser(data.user);
     };
 
     const logout = () => {
         localStorage.removeItem(localStorageKeys.user);
-        localStorage.removeItem(localStorageKeys.accessToken);
-        localStorage.removeItem(localStorageKeys.refreshToken);
+        // localStorage.removeItem(localStorageKeys.accessToken);
+        // localStorage.removeItem(localStorageKeys.refreshToken);
 
         setUser({} as User);
     };
