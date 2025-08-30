@@ -180,7 +180,7 @@ const HeaderAuth = () => {
                         </ProfileWrapper>
                     </ActionsContainer>
                 </HeaderContainer>
-                <NavContainer>
+                {/* <NavContainer>
                     {headerItens.map(item => (
                         <NavLink
                             key={item.title}
@@ -202,7 +202,7 @@ const HeaderAuth = () => {
                             {item.title}
                         </NavLink>
                     ))}
-                </NavContainer>
+                </NavContainer> */}
             </Container>
         </>
     );
