@@ -160,6 +160,13 @@ const HeaderAuth = () => {
                                                 </ProfileMenuItem>
                                                 <ProfileMenuItem
                                                     onClick={() => {
+                                                        router.push('/Cart');
+                                                    }}
+                                                >
+                                                    <p>Carrinho</p>
+                                                </ProfileMenuItem>
+                                                <ProfileMenuItem
+                                                    onClick={() => {
                                                         // abrir modal de confirmação
                                                     }}
                                                 >
