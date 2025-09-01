@@ -13,19 +13,27 @@ import { LuPencil, LuTrash2 } from 'react-icons/lu';
 import { IoIosArrowDown } from 'react-icons/io';
 import { theme } from '@/styles/theme';
 import { useState } from 'react';
+import CheckBox from '../CheckBox/CheckBox';
 
 const CardsComponent = ({
     onRemoveWarning,
     onEditWarning,
     warning,
+    onSelected,
+    checked,
+    isCheckout = false,
 }: {
-    onRemoveWarning: () => void;
-    onEditWarning: () => void;
-    warning: any;
+    onRemoveWarning?: () => void;
+    onEditWarning?: () => void;
+    warning?: any;
+    onSelected?: () => void;
+    checked?: boolean;
+    isCheckout?: boolean;
 }) => {
     const [open, setOpen] = useState(false);
     return (
         <ContainerWarning>
+            {isCheckout && <CheckBox onChange={onSelected} checked={checked} />}
             <div
                 style={{
                     display: 'flex',

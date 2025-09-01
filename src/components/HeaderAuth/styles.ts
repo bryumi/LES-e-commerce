@@ -41,6 +41,32 @@ export const ActionsContainer = styled.div`
     align-items: center;
     gap: 1rem;
 `;
+export const CartWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.neutral300};
+
+    position: relative;
+`;
+
+export const CartQtd = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: ${({ theme }) => theme.colors.primary100};
+    color: ${({ theme }) => theme.colors.white};
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 12px;
+    font-weight: 500;
+`;
 
 export const ProfileWrapper = styled.div`
     display: flex;

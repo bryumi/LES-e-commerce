@@ -11,7 +11,6 @@ interface CheckboxProps {
     name?: string;
     readOnly?: boolean;
     id?: string;
-    content?: boolean;
 }
 
 const CheckBox = ({
@@ -25,7 +24,6 @@ const CheckBox = ({
     name,
     readOnly,
     id = 'checkbox-id',
-    content = false,
     ...rest
 }: CheckboxProps) => {
     return (
@@ -44,7 +42,6 @@ const CheckBox = ({
                 $bgColor={bgColor}
                 $borderColor={borderColor}
                 $borderRadius={borderRadius}
-                $content={content}
             />
         </CheckboxContainer>
     );

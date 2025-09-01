@@ -11,6 +11,7 @@ import StyledComponentsRegistry from '@/lib/registry';
 import { GlobalStyle } from '@/styles/globals';
 import { theme } from '@/styles/theme';
 import AuthProvider from '@/hooks/useAuth';
+import { CartProvider } from '../context/useCart';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -35,8 +36,10 @@ const Providers = ({ children }: PropsWithChildren) => {
                         }}
                     />
                     <AuthProvider>
-                        <GlobalStyle />
-                        {children}
+                        <CartProvider>
+                            <GlobalStyle />
+                            {children}
+                        </CartProvider>
                     </AuthProvider>
                 </QueryClientProvider>
             </ThemeProvider>

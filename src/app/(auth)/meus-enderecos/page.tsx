@@ -55,9 +55,9 @@ const MyAddressesPage = () => {
                             />
                         </div>
                         <AddressComponent
-                            onRemoveWarning={() => setModalState('delete')}
-                            onEditWarning={() => setModalState('add')}
-                            warning={{}}
+                            onRemoveItem={() => setModalState('delete')}
+                            onEditItem={() => setModalState('add')}
+                            Item={{}}
                         />
                     </ContentWrapper>
                     <ContentWrapper>
@@ -80,9 +80,9 @@ const MyAddressesPage = () => {
                             />
                         </div>
                         <AddressComponent
-                            onRemoveWarning={() => setModalState('delete')}
-                            onEditWarning={() => setModalState('add')}
-                            warning={{}}
+                            onRemoveItem={() => setModalState('delete')}
+                            onEditItem={() => setModalState('add')}
+                            Item={{}}
                         />
                     </ContentWrapper>
                 </ContentWarnings>
