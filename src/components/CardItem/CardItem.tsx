@@ -11,7 +11,6 @@ import {
     CarLocation,
     CarPrice,
     CarTitle,
-    CarYearKm,
     ChampionTag,
     ImageCarousel,
     InfoContainer,

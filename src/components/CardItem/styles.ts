@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
 
     overflow: hidden;
     position: relative;
+    padding-bottom: 20px;
 `;
 
 export const ChampionTag = styled.div`
@@ -60,7 +61,7 @@ export const ImageCarousel = styled.div`
         opacity: 1 !important;
     }
     .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: ${({ theme }) => theme.colors.error} !important;
+        background-color: ${({ theme }) => theme.colors.primary100} !important;
     }
     .swiper-button-next,
     .swiper-button-prev {
@@ -82,15 +83,16 @@ export const CarImage = styled.img`
 
 export const InfoContainer = styled.div`
     padding: 12px 20px;
-
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    padding-bottom: 2px;
 `;
 
 export const CarTitle = styled.h3`
     font-size: 1rem;
-    color: ${({ theme }) => theme.colors.error};
+    color: #362a2e;
+    font-family: var(--font-poppins);
     font-weight: 600;
     line-height: 1.2;
     text-transform: uppercase;
@@ -99,27 +101,23 @@ export const CarTitle = styled.h3`
 
 export const CarDetails = styled.p`
     text-transform: uppercase;
+    font-family: var(--font-poppins);
     font-size: 0.875rem;
-    color: ${({ theme }) => theme.colors.neutral200};
+    color: #362a2e;
     font-weight: 400;
 `;
 
 export const CarPrice = styled.p`
     font-size: 18px;
-    color: ${({ theme }) => theme.colors.neutral200};
+    color: #362a2e;
     font-weight: 600;
-`;
-
-export const CarYearKm = styled.p`
-    font-size: 0.875rem;
-    color: ${({ theme }) => theme.colors.neutral200};
-    font-weight: 400;
+    font-family: var(--font-poppins);
 `;
 
 export const CarLocation = styled.div`
     display: flex;
     align-items: center;
-    color: ${({ theme }) => theme.colors.neutral200};
+    color: #362a2e;
     font-weight: 400;
     gap: 4px;
 `;

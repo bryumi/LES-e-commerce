@@ -7,7 +7,6 @@ import {
     Subtotal,
     RemoveButton,
 } from './styles';
-
 interface CartItemProps {
     title: string;
     author: string;

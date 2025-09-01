@@ -4,15 +4,20 @@ export const ContainerPage = styled.div`
     padding: 2rem 5rem;
     margin-top: 10rem;
     display: flex;
+    gap: 2rem;
     flex-direction: column;
+    border-radius: 8px;
+    padding-block: 2rem;
 `;
 export const ContainerDescription = styled.div`
     background-color: #f6b9c5;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 1rem;
     padding-inline: 2rem;
-    border-radius: 0.375rem;
+    border-radius: 8px;
+    padding-block: 2rem;
 `;
 export const Container = styled.div`
     background-color: #fbdce2;
@@ -24,21 +29,26 @@ export const Container = styled.div`
 `;
 export const BookTitle = styled.h1`
     color: #362a2e;
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: bold;
+    font-family: var(--font-poppins);
     margin-bottom: 1rem;
 `;
 
 export const BookDescription = styled.p`
     color: #362a2e;
+    font-family: var(--font-poppins);
+    font-size: 16px;
     margin-bottom: 1rem;
     line-height: 1.5;
 `;
 
 export const BookPrice = styled.p`
-    font-size: 1.25rem;
+    font-size: 20px;
     font-weight: 600;
+    font-family: var(--font-poppins);
     margin-bottom: 2rem;
+    margin-top: 1rem;
 `;
 
 export const ButtonGroup = styled.div`
@@ -46,27 +56,11 @@ export const ButtonGroup = styled.div`
     justify-content: space-between;
     gap: 1rem;
     padding-inline: 2rem;
-`;
-
-export const Button = styled.button<{ variant?: 'primary' | 'secondary' }>`
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-
-    background-color: ${({ variant }) =>
-        variant === 'primary' ? '#16a34a' : '#d1d5db'};
-    color: ${({ variant }) => (variant === 'primary' ? '#fff' : '#000')};
-
-    &:hover {
-        background-color: ${({ variant }) =>
-            variant === 'primary' ? '#15803d' : '#9ca3af'};
-    }
+    padding-bottom: 20px;
 `;
 
 export const ImageContainer = styled.div`
-    margin-bottom: 2rem;
     display: flex;
     flex-wrap: wrap;
+    padding-block: 2rem;
 `;

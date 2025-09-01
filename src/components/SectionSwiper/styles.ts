@@ -12,12 +12,13 @@ export const Title = styled.div`
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    margin-top: 1rem;
     p {
         font-family: Poppins;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 100%;
-        color: ${({ theme }) => theme.colors.neutral200};
+        color: #f4a8b7;
     }
 `;
 export const SwiperWrapper = styled.div`

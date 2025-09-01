@@ -1,3 +1,4 @@
+'use client';
 import { usePathname, useRouter } from 'next/navigation';
 import {
     ActionsContainer,
@@ -81,7 +82,11 @@ const HeaderAuth = () => {
             <Container>
                 <HeaderContainer>
                     <HeaderLogo>
-                        <LuBird color="#F5EEEF" size={50} />
+                        <LuBird
+                            color="#F5EEEF"
+                            size={50}
+                            onClick={() => router.push('/')}
+                        />
                     </HeaderLogo>
                     <ActionsContainer>
                         <ProfileWrapper>
@@ -197,7 +202,11 @@ const HeaderAuth = () => {
                             )}
                         </ProfileWrapper>
                         <CartWrapper>
-                            <IoCartOutline size={32} color="#D1D0D0" />
+                            <IoCartOutline
+                                size={32}
+                                color="#D1D0D0"
+                                onClick={() => router.push('/carrinho')}
+                            />
                             {cart.length > 0 && (
                                 <CartQtd>
                                     {cart

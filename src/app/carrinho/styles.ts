@@ -21,6 +21,7 @@ export const Total = styled.div`
 export const ContainerRow = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: space-between;
     justify-content: start;
     gap: 1.5rem;
     width: 100%;

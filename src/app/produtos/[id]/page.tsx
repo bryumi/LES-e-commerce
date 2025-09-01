@@ -9,13 +9,15 @@ import {
     BookDescription,
     BookPrice,
     ButtonGroup,
-    Button,
     ImageContainer,
     ContainerDescription,
     ContainerPage,
 } from './styles';
 import HeaderAuth from '@/components/HeaderAuth/HeaderAuth';
 import { useCart } from '@/components/context/useCart';
+import StyledButton from '@/components/StyledButton/StyledButton';
+import { theme } from '@/styles/theme';
+import { handleSuccess } from '@/utils/handleToast';
 
 interface Props {
     params: { id: string };
@@ -56,12 +58,27 @@ export default function ProductPage({ params }: Props) {
                     </Container>
                 </ContainerDescription>
                 <ButtonGroup>
-                    <Button onClick={() => router.back()} variant="secondary">
-                        Voltar
-                    </Button>
-                    <Button onClick={() => addToCart(book)}>
-                        Colocar no carrinho
-                    </Button>
+                    <StyledButton
+                        onClick={() => router.back()}
+                        bgColor="background"
+                        fontSize="16px"
+                        fontWeight="bold"
+                        text="Voltar"
+                        textColor="primary100"
+                        border={`1px solid ${theme.colors.primary100}`}
+                    />
+                    <StyledButton
+                        onClick={() => {
+                            addToCart(book);
+                            handleSuccess('Produto adicionado com sucesso');
+                        }}
+                        bgColor="background"
+                        fontSize="16px"
+                        fontWeight="bold"
+                        text="Colocar no carrinho"
+                        textColor="primary100"
+                        border={`1px solid ${theme.colors.primary100}`}
+                    />
                 </ButtonGroup>
             </ContainerPage>
         </>
