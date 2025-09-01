@@ -1,6 +1,8 @@
 import { usePathname, useRouter } from 'next/navigation';
 import {
     ActionsContainer,
+    CartQtd,
+    CartWrapper,
     Container,
     HeaderContainer,
     HeaderLogo,
@@ -18,6 +20,8 @@ import { LuBird } from 'react-icons/lu';
 import ModalLogin from '../ModalLogin/ModalLogin';
 import { localStorageKeys } from '@/utils/localStorageKeys';
 import { PiUserLight } from 'react-icons/pi';
+import { IoCartOutline } from 'react-icons/io5';
+import { useCart } from '../context/useCart';
 
 const HeaderAuth = () => {
     const [profileOpen, setProfileOpen] = useState(false);
@@ -25,6 +29,7 @@ const HeaderAuth = () => {
     const router = useRouter();
     const pathname = usePathname();
     const { logout, isAuthenticated, user: currentUser } = useAuth();
+    const { cart } = useCart();
     const profileRef = useRef<HTMLDivElement>(null);
     const savedData = JSON.parse(
         localStorage.getItem(localStorageKeys.userData) || '{}',
@@ -44,11 +49,6 @@ const HeaderAuth = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-    const headerItens = [
-        { title: 'Livros', href: '/livros' },
-        { title: 'Categorias', href: '/edital-verticalizado' },
-        { title: 'Promoções', href: '/conteudos' },
-    ];
     const renderPhoto = () => {
         return <PiUserLight size={53} color="#D1D0D0" />;
     };
@@ -160,7 +160,9 @@ const HeaderAuth = () => {
                                                 </ProfileMenuItem>
                                                 <ProfileMenuItem
                                                     onClick={() => {
-                                                        router.push('/Cart');
+                                                        router.push(
+                                                            '/carrinho',
+                                                        );
                                                     }}
                                                 >
                                                     <p>Carrinho</p>
@@ -185,31 +187,18 @@ const HeaderAuth = () => {
                                 </>
                             )}
                         </ProfileWrapper>
+                        <CartWrapper>
+                            <IoCartOutline size={32} color="#D1D0D0" />
+                            {cart.length > 0 && (
+                                <CartQtd>
+                                    {cart
+                                        .map(item => item.quantity)
+                                        .reduce((acc, curr) => acc + curr, 0)}
+                                </CartQtd>
+                            )}
+                        </CartWrapper>
                     </ActionsContainer>
                 </HeaderContainer>
-                {/* <NavContainer>
-                    {headerItens.map(item => (
-                        <NavLink
-                            key={item.title}
-                            href={item.href}
-                            $selected={pathname === item.href}
-                            $inactive={pathname === '/edital'}
-                            onClick={e => {
-                                if (
-                                    pathname === item.href ||
-                                    pathname === '/edital'
-                                ) {
-                                    e.preventDefault(); // Impede navegação
-                                    return;
-                                }
-
-                                setProfileOpen(false);
-                            }}
-                        >
-                            {item.title}
-                        </NavLink>
-                    ))}
-                </NavContainer> */}
             </Container>
         </>
     );

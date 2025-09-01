@@ -22,7 +22,6 @@ interface StyledCheckboxProps {
     $bgColor?: string;
     $borderColor?: string;
     $borderRadius?: string;
-    $content?: boolean;
 }
 export const StyledCheckbox = styled.div<StyledCheckboxProps>`
     display: inline-block;
@@ -43,28 +42,13 @@ export const StyledCheckbox = styled.div<StyledCheckboxProps>`
         border-color: ${({ theme }) => theme.colors.neutral500};
 
         &:after {
-            content: '';
+            content: '✔';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-
-            ${({ $content }) =>
-                $content
-                    ? `
-      width: 8px;
-      height: 8px;
-      background-color: white;
-      border-radius: 50%;
-    `
-                    : `
-      width: 14px;
-      height: 14px;
-      background-image: url('/svg/check.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-    `}
+            color: ${({ theme }) => theme.colors.white};
+            font-size: 14px;
         }
     }
 `;

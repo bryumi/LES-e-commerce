@@ -14,23 +14,31 @@ import { LuPencil, LuTrash2 } from 'react-icons/lu';
 import { IoIosArrowDown } from 'react-icons/io';
 import { theme } from '@/styles/theme';
 import { useState } from 'react';
+import CheckBox from '../CheckBox/CheckBox';
 
 const AddressComponent = ({
-    onRemoveWarning,
-    onEditWarning,
-    warning,
+    onRemoveItem,
+    onEditItem,
+    Item,
+    isCheckout,
+    checked,
+    onSelected,
 }: {
-    onRemoveWarning: () => void;
-    onEditWarning: () => void;
-    warning: any;
+    onRemoveItem?: () => void;
+    onEditItem?: () => void;
+    Item?: any;
+    isCheckout?: boolean;
+    checked?: boolean;
+    onSelected?: () => void;
 }) => {
     const [open, setOpen] = useState(false);
     return (
         <ContainerWarning>
+            {isCheckout && <CheckBox onChange={onSelected} checked={checked} />}
             <MainRow>
                 <FieldWrapper>
                     <FieldLabel>Apelido:</FieldLabel>
-                    <FieldValue>{warning?.nickname || '-'}</FieldValue>
+                    <FieldValue>{Item?.nickname || '-'}</FieldValue>
                 </FieldWrapper>
                 <div
                     style={{
@@ -48,7 +56,7 @@ const AddressComponent = ({
                         border={`1px solid ${theme.colors.primary100}`}
                         bgColor="white"
                         textColor={'primary100'}
-                        onClick={onEditWarning}
+                        onClick={onEditItem}
                     />
                     <StyledButton
                         text="Excluir"
@@ -56,7 +64,7 @@ const AddressComponent = ({
                         iconProps={{ size: 16, color: '#FFFFF' }}
                         leftIcon
                         padding="8px 10px"
-                        onClick={onRemoveWarning}
+                        onClick={onRemoveItem}
                     />
                     <ArrowButton $isOpen={open} onClick={() => setOpen(!open)}>
                         <IoIosArrowDown color={theme.colors.primary100} />
@@ -67,45 +75,45 @@ const AddressComponent = ({
                 <Row>
                     <FieldWrapper>
                         <FieldLabel>Cep:</FieldLabel>
-                        <FieldValue>{warning?.zipCode || '-'}</FieldValue>
+                        <FieldValue>{Item?.zipCode || '-'}</FieldValue>
                     </FieldWrapper>
                     <FieldWrapper>
                         <FieldLabel>Estado:</FieldLabel>
-                        <FieldValue>{warning?.state || '-'}</FieldValue>
+                        <FieldValue>{Item?.state || '-'}</FieldValue>
                     </FieldWrapper>
                     <FieldWrapper>
                         <FieldLabel>Cidade:</FieldLabel>
-                        <FieldValue>{warning?.city || '-'}</FieldValue>
+                        <FieldValue>{Item?.city || '-'}</FieldValue>
                     </FieldWrapper>
                 </Row>
                 <Row>
                     <FieldWrapper>
                         <FieldLabel>Tipo de Logradouro:</FieldLabel>
-                        <FieldValue>{warning?.typeOfStreet || '-'}</FieldValue>
+                        <FieldValue>{Item?.typeOfStreet || '-'}</FieldValue>
                     </FieldWrapper>
                     <FieldWrapper>
                         <FieldLabel>Logradouro:</FieldLabel>
-                        <FieldValue>{warning?.address || '-'}</FieldValue>
+                        <FieldValue>{Item?.address || '-'}</FieldValue>
                     </FieldWrapper>
                 </Row>
                 <Row>
                     <FieldWrapper>
                         <FieldLabel>Tipo de residência:</FieldLabel>
-                        <FieldValue>{warning?.typeOfHouse || '-'}</FieldValue>
+                        <FieldValue>{Item?.typeOfHouse || '-'}</FieldValue>
                     </FieldWrapper>
                     <FieldWrapper>
                         <FieldLabel>Bairro:</FieldLabel>
-                        <FieldValue>{warning?.neighborhood || '-'}</FieldValue>
+                        <FieldValue>{Item?.neighborhood || '-'}</FieldValue>
                     </FieldWrapper>
                     <FieldWrapper>
                         <FieldLabel>Número:</FieldLabel>
-                        <FieldValue>{warning?.number || '-'}</FieldValue>
+                        <FieldValue>{Item?.number || '-'}</FieldValue>
                     </FieldWrapper>
                 </Row>
                 <Row>
                     <FieldWrapper>
                         <FieldLabel>Observações:</FieldLabel>
-                        <FieldValue>{warning?.observations || '-'}</FieldValue>
+                        <FieldValue>{Item?.observations || '-'}</FieldValue>
                     </FieldWrapper>
                 </Row>
             </ContainerWrapper>

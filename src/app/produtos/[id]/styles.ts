@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-
+export const ContainerPage = styled.div`
+    height: 100%;
+    padding: 2rem 5rem;
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+`;
 export const ContainerDescription = styled.div`
     background-color: #f6b9c5;
     display: flex;
