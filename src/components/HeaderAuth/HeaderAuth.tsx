@@ -152,6 +152,15 @@ const HeaderAuth = () => {
                                                 <ProfileMenuItem
                                                     onClick={() => {
                                                         router.push(
+                                                            '/registerBooks',
+                                                        );
+                                                    }}
+                                                >
+                                                    <p>Cadastrar Livro</p>
+                                                </ProfileMenuItem>
+                                                <ProfileMenuItem
+                                                    onClick={() => {
+                                                        router.push(
                                                             '/meus-cartoes',
                                                         );
                                                     }}
