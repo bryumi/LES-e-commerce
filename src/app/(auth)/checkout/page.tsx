@@ -40,6 +40,7 @@ const CheckoutPage = () => {
         decreaseQuantity,
         coupon,
         discount,
+        clearCart,
     } = useCart();
     const router = useRouter();
     const handleCardSelection = (cardId: string) => {
@@ -91,7 +92,10 @@ const CheckoutPage = () => {
                 <ModalSuccess
                     title="Sucesso!"
                     textNormal="Obrigado por sua compra!"
-                    onConfirm={() => router.push('/')}
+                    onConfirm={() => {
+                        clearCart();
+                        router.push('/');
+                    }}
                     confirmText="Voltar para a loja"
                 />
             )}

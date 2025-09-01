@@ -88,6 +88,7 @@ const ModalAddAddress = ({
                 id: 1,
                 email: savedData.email,
                 username: savedData.name,
+                role: 'client',
             });
             onConfirm();
         } catch (error) {

@@ -30,7 +30,7 @@ const HeaderAuth = () => {
     const router = useRouter();
     const pathname = usePathname();
     const { logout, isAuthenticated, user: currentUser } = useAuth();
-    const { cart } = useCart();
+    const { cart, clearCart } = useCart();
     const profileRef = useRef<HTMLDivElement>(null);
     const savedData = JSON.parse(
         localStorage.getItem(localStorageKeys.userData) || '{}',
@@ -94,7 +94,7 @@ const HeaderAuth = () => {
                             <div>
                                 <p>
                                     {isAuthenticated
-                                        ? savedData.name || 'Minha conta'
+                                        ? currentUser.username || 'Minha conta'
                                         : 'Minha conta'}
                                 </p>
                             </div>
@@ -154,15 +154,21 @@ const HeaderAuth = () => {
                                                 >
                                                     <p>Meus endereços</p>
                                                 </ProfileMenuItem>
-                                                <ProfileMenuItem
-                                                    onClick={() => {
-                                                        router.push(
-                                                            '/registerBooks',
-                                                        );
-                                                    }}
-                                                >
-                                                    <p>Cadastrar Livro</p>
-                                                </ProfileMenuItem>
+                                                {isAuthenticated &&
+                                                    currentUser.role ===
+                                                        'admin' && (
+                                                        <ProfileMenuItem
+                                                            onClick={() => {
+                                                                router.push(
+                                                                    '/cadastrar-livros',
+                                                                );
+                                                            }}
+                                                        >
+                                                            <p>
+                                                                Cadastrar Livro
+                                                            </p>
+                                                        </ProfileMenuItem>
+                                                    )}
                                                 <ProfileMenuItem
                                                     onClick={() => {
                                                         router.push(
@@ -190,6 +196,7 @@ const HeaderAuth = () => {
                                                 </ProfileMenuItem>
                                                 <ProfileMenuItem
                                                     onClick={() => {
+                                                        clearCart();
                                                         logout();
                                                     }}
                                                 >

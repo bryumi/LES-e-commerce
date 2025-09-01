@@ -14,8 +14,9 @@ import { ILoginForm, LoginSchema } from '@/validations/LoginSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { localStorageKeys } from '@/utils/localStorageKeys';
 import { useAuth } from '@/hooks/useAuth';
-import { mockUsers } from '@/data/user';
+import { userAdmin } from '@/data/user';
 import handleError from '@/utils/handleToast';
+import { useRouter } from 'next/navigation';
 
 interface ModalLoginProps {
     onConfirm: () => void;
@@ -29,27 +30,51 @@ const ModalLogin = ({ onConfirm, onClose }: ModalLoginProps) => {
     } = useForm<ILoginForm>({
         resolver: yupResolver(LoginSchema),
     });
+    const router = useRouter();
     const { setUser } = useAuth();
     const onSubmit: SubmitHandler<ILoginForm> = data => {
         try {
-            const user = mockUsers.find(user => user.email === data.email);
+            const admin = userAdmin.find(user => user.email === data.email);
             const savedData = JSON.parse(
                 localStorage.getItem(localStorageKeys.userData) || '{}',
             );
+            if (admin) {
+                localStorage.setItem(
+                    localStorageKeys.user,
+                    JSON.stringify({
+                        id: admin.id,
+                        name: admin.username,
+                        email: admin.email,
+                        role: 'admin',
+                    }),
+                );
+                setUser({
+                    id: admin.id,
+                    email: admin.email,
+                    username: admin.username,
+                    role: 'admin',
+                });
+                onConfirm();
+                router.push('/meu-perfil');
+                return;
+            }
             localStorage.setItem(
                 localStorageKeys.user,
                 JSON.stringify({
                     id: 1,
                     name: savedData.name,
                     email: savedData.email,
+                    role: 'client',
                 }),
             );
             setUser({
-                id: 1,
+                id: Math.floor(Math.random() * 1000),
                 email: savedData.email,
                 username: savedData.name,
+                role: 'client',
             });
             onConfirm();
+            router.push('/meu-perfil');
         } catch (error) {
             handleError(error);
         }

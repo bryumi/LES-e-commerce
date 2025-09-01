@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-    width: 13.75rem;
-    height: 24rem;
+    width: 16rem;
+    height: 27.5rem;
 
     background: white;
     border-radius: 12px;
@@ -11,68 +11,13 @@ export const CardContainer = styled.div`
     overflow: hidden;
     position: relative;
     padding-bottom: 20px;
-`;
-
-export const ChampionTag = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background: ${({ theme }) => theme.colors.primary200};
-    width: 100%;
-    height: 1.5rem;
-`;
-export const Tag = styled.div`
-    display: flex;
-    position: relative;
-    div {
-        color: ${({ theme }) => theme.colors.white};
-        background-color: ${({ theme }) => theme.colors.primary200};
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 0.5rem;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        line-height: 1.5rem;
-        text-transform: uppercase;
-        position: absolute;
-        top: 0.25rem;
-    }
+    cursor: pointer;
 `;
 
 export const ImageCarousel = styled.div`
     width: 100%;
     height: 50%;
     overflow: hidden;
-    &:hover {
-        .swiper-button-next,
-        .swiper-button-prev {
-            opacity: 0.8;
-        }
-    }
-
-    .swiper-pagination {
-        background-color: transparent;
-    }
-    .swiper-pagination-bullet {
-        background-color: ${({ theme }) => theme.colors.white} !important;
-        opacity: 1 !important;
-    }
-    .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: ${({ theme }) => theme.colors.primary100} !important;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-        width: 30px;
-        height: 30px;
-        color: ${({ theme }) => theme.colors.white};
-        opacity: 0;
-        &:hover {
-            opacity: 1;
-        }
-    }
 `;
 
 export const CarImage = styled.img`
@@ -97,6 +42,7 @@ export const CarTitle = styled.h3`
     line-height: 1.2;
     text-transform: uppercase;
     margin: 0;
+    cursor: pointer;
 `;
 
 export const CarDetails = styled.p`
@@ -112,12 +58,4 @@ export const CarPrice = styled.p`
     color: #362a2e;
     font-weight: 600;
     font-family: var(--font-poppins);
-`;
-
-export const CarLocation = styled.div`
-    display: flex;
-    align-items: center;
-    color: #362a2e;
-    font-weight: 400;
-    gap: 4px;
 `;

@@ -8,13 +8,10 @@ import {
     CardContainer,
     CarDetails,
     CarImage,
-    CarLocation,
     CarPrice,
     CarTitle,
-    ChampionTag,
     ImageCarousel,
     InfoContainer,
-    Tag,
 } from './styles';
 import { useRouter } from 'next/navigation';
 import { IBooks } from '@/data/mockItems';
@@ -25,19 +22,9 @@ interface CardItemProps {
 const CardItem = ({ car }: CardItemProps) => {
     const router = useRouter();
     return (
-        <CardContainer>
+        <CardContainer onClick={() => router.push(`/produtos/${car.id}`)}>
             <ImageCarousel>
-                <Swiper
-                    modules={[Pagination, Navigation]}
-                    pagination={{ clickable: true }}
-                    navigation
-                >
-                    {car.images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <CarImage src={image} alt={car.description} />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <CarImage src={car.images[0]} alt={car.description} />
             </ImageCarousel>
             <InfoContainer>
                 <CarTitle onClick={() => router.push(`/produtos/${car.id}`)}>

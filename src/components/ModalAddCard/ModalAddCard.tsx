@@ -56,6 +56,7 @@ const ModalAddCard = ({ onConfirm, onClose, type }: ModalAddCardProps) => {
                 id: 1,
                 email: savedData.email,
                 username: savedData.name,
+                role: 'client',
             });
             onConfirm();
         } catch (error) {

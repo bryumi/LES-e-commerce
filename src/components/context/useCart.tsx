@@ -21,29 +21,6 @@ interface CartContextType {
     coupon: Coupon | null;
     discount: number;
 }
-const initialData = [
-    {
-        id: 1,
-        bookName: 'Menina Má',
-        description:
-            'Clássico de William March — nascimento da inocência corrompida.',
-        price: 64.9,
-        images: ['/images/books/badSeed.jpeg'],
-        author: 'William March',
-        publisher: 'DarkSide Books',
-        year: 2016,
-    },
-    {
-        id: 2,
-        bookName: 'Drácula - First Edition + Brinde Exclusivo',
-        description: 'Edição limitada de Bram Stoker com estaca de caçador.',
-        price: 93.42,
-        images: ['/images/books/dracula.jpeg'],
-        author: 'Bram Stoker',
-        publisher: 'Madras Editora',
-        year: 2020,
-    },
-];
 interface Coupon {
     code: string;
     discountPercentage: number; // desconto em %
@@ -57,9 +34,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     const [coupon, setCoupon] = useState<Coupon | null>(null);
     const [discount, setDiscount] = useState(0);
-    const [cart, setCart] = useState<CartItem[]>(
-        initialData.map(item => ({ ...item, quantity: 1 })),
-    );
+    const [cart, setCart] = useState<CartItem[]>([]);
 
     const addToCart = (book: IBooks) => {
         setCart(prev =>

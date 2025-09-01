@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import mockItemsBooks from '@/data/mockItems';
 import {
@@ -19,13 +19,10 @@ import StyledButton from '@/components/StyledButton/StyledButton';
 import { theme } from '@/styles/theme';
 import { handleSuccess } from '@/utils/handleToast';
 
-interface Props {
-    params: { id: string };
-}
-
-export default function ProductPage({ params }: Props) {
+export default function ProductPage() {
     const router = useRouter();
-    const book = mockItemsBooks.find(b => b.id === Number(params.id));
+    const id = useParams();
+    const book = mockItemsBooks.find(b => b.id === Number(id));
     const { addToCart } = useCart();
 
     if (!book) return <p>Livro não encontrado</p>;

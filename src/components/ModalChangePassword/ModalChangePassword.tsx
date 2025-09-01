@@ -17,7 +17,6 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import { localStorageKeys } from '@/utils/localStorageKeys';
 import { useAuth } from '@/hooks/useAuth';
-import { mockUsers } from '@/data/user';
 import handleError from '@/utils/handleToast';
 
 interface ModalChangePasswordProps {
@@ -54,6 +53,7 @@ const ModalChangePassword = ({
                 id: 1,
                 email: savedData.email,
                 username: savedData.name,
+                role: 'client',
             });
             onConfirm();
         } catch (error) {

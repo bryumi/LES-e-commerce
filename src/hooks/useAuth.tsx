@@ -17,6 +17,7 @@ export interface User {
     id: number;
     email: string;
     username: string;
+    role: 'client' | 'admin';
 }
 
 export interface ILoginResponse {
@@ -87,7 +88,14 @@ const AuthProvider = ({ children }: ChildrenProps) => {
         setUser({} as User);
     };
 
-    const publicRoutes = ['/', '/cadastro'];
+    const publicRoutes = [
+        '/',
+        '/cadastro',
+        '/carrinho',
+        '/produtos/1',
+        '/produtos/2',
+        '/produtos/3',
+    ];
 
     if (loading) {
         return null;

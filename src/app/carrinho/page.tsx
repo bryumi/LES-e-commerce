@@ -115,7 +115,7 @@ const Cart: React.FC = () => {
                         <ButtonsWrapper>
                             <StyledButton
                                 text="Continuar Comprando"
-                                onClick={() => setModalState('chooseLogin')}
+                                onClick={() => router.push('/')}
                                 bgColor="background"
                                 textColor="primary100"
                                 border={`1px solid ${theme.colors.primary100}`}
