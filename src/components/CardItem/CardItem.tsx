@@ -41,11 +41,14 @@ const CardItem = ({ car }: CardItemProps) => {
                 </Swiper>
             </ImageCarousel>
             <InfoContainer>
-                <CarTitle onClick={() => router.push(`/feed/${car.id}`)}>
+                <CarTitle onClick={() => router.push(`/produtos/${car.id}`)}>
                     {car.bookName}
                 </CarTitle>
                 <CarDetails>{car.description}</CarDetails>
                 <CarPrice>R$ {car.price.toLocaleString()}</CarPrice>
+                <CarDetails>{car.author}</CarDetails>
+                <CarDetails>{car.publisher}</CarDetails>
+                <CarDetails>{car.year}</CarDetails>
             </InfoContainer>
         </CardContainer>
     );
