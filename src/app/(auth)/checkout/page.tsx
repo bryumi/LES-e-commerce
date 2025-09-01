@@ -128,6 +128,7 @@ const CheckoutPage = () => {
                             Cupom de desconto: {coupon.code}, {discount}%
                         </h4>
                     )}
+                    <h4>Escolha um cartão</h4>
                     <CardsComponent
                         onSelected={() => handleCardSelection('0')}
                         checked={selectedCard === '0'}

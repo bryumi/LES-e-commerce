@@ -22,7 +22,7 @@ const Cart: React.FC = () => {
         increaseQuantity,
         decreaseQuantity,
         applyCoupon,
-    } = useCart(); // ⬅️ pegando dados do contexto
+    } = useCart();
     const [modalState, setModalState] = useState<string | undefined>(undefined);
     const [couponValue, setCouponValue] = useState<string>('');
     const { user } = useAuth();

@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import mockItemsBooks from '@/data/mockItems';
+import mockItemsBooks, { IBooks } from '@/data/mockItems';
 import {
     Container,
     BookTitle,
@@ -18,15 +18,20 @@ import { useCart } from '@/components/context/useCart';
 import StyledButton from '@/components/StyledButton/StyledButton';
 import { theme } from '@/styles/theme';
 import { handleSuccess } from '@/utils/handleToast';
+import { useEffect, useState } from 'react';
 
-export default function ProductPage() {
+const ProductPage = () => {
+    const [book, setBook] = useState<IBooks | null>(null);
     const router = useRouter();
     const id = useParams();
-    const book = mockItemsBooks.find(b => b.id === Number(id));
     const { addToCart } = useCart();
-
+    useEffect(() => {
+        const book = mockItemsBooks.find(b => b.id === Number(id.id));
+        if (book) {
+            setBook(book);
+        }
+    }, [id]);
     if (!book) return <p>Livro não encontrado</p>;
-
     return (
         <>
             <HeaderAuth />
@@ -80,4 +85,6 @@ export default function ProductPage() {
             </ContainerPage>
         </>
     );
-}
+};
+
+export default ProductPage;

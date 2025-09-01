@@ -6,6 +6,9 @@ export const CartItemContainer = styled.div`
     align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid #ccc;
+    background-color: #fbdce2;
+    border-radius: 8px;
+    padding-inline: 12px;
 `;
 export const ProductInfo = styled.div`
     display: flex;
@@ -16,16 +19,19 @@ export const ProductInfo = styled.div`
 export const ProductText = styled.div`
     display: flex;
     flex-direction: column;
+    font-family: var(--font-poppins);
 `;
 
 export const Price = styled.div`
     flex: 1;
     text-align: right;
+    font-family: var(--font-poppins);
 `;
 
 export const Subtotal = styled.div`
     flex: 1;
     text-align: right;
+    font-family: var(--font-poppins);
 `;
 
 export const RemoveButton = styled.button`

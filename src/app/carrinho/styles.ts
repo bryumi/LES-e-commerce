@@ -30,7 +30,7 @@ export const ContainerRow = styled.div`
 export const ButtonsWrapper = styled.div`
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
     padding-bottom: 2rem;

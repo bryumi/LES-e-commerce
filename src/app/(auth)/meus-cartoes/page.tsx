@@ -14,7 +14,7 @@ const MyCardsPage = () => {
             {modalState === 'delete' && (
                 <ModalNotification
                     title="Atenção!"
-                    text="Tem certeza que deseja excluir este endereço?"
+                    text="Tem certeza que deseja excluir este cartão?"
                     onClose={() => setModalState(undefined)}
                     onConfirm={() => {
                         setModalState(undefined);
