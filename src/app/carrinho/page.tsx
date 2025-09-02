@@ -122,12 +122,13 @@ const Cart: React.FC = () => {
                             />
                             <StyledButton
                                 onClick={() => {
-                                    if (!user) {
-                                        setModalState('chooseLogin');
-                                        console.log('Finalizar Compra');
-                                    } else {
-                                        router.push('/checkout');
-                                    }
+                                    // if (!user) {
+                                    //     setModalState('chooseLogin');
+                                    //     console.log('Finalizar Compra');
+                                    // } else {
+                                    //     router.push('/checkout');
+                                    // }
+                                    setModalState('chooseLogin');
                                 }}
                                 text="Finalizar Compra"
                             />
